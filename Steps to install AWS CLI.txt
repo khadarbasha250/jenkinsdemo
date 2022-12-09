@@ -1,0 +1,26 @@
+STEPS TO INSTALL AND CONFIGURE AWS CLI AND KUBECTL
+
+#command to install AWS CLI
+msiexec.exe /i https://awscli.amazonaws.com/AWSCLIV2.msi
+aws --version
+aws configure
+Access Key ID:
+AKIAZWDTQF4H5EEPPMAA
+Secret Access Key:
+Tf5LH/J6Avo8y7DArIfbqP5ZwvGq2AbNX/RE+RD8
+
+#command to install kubectl
+curl -o kubectl.exe https://s3.us-west-2.amazonaws.com/amazon-eks/1.24.7/2022-10-31/bin/windows/amd64/kubectl.exe
+kubectl
+
+#To check the status of master node
+aws eks --region us-east-2 describe-cluster --name learnEKS --query cluster.status
+
+#To get and dowloadserver API credentials
+aws eks --region us-east-2 update-kubeconfig --name learnEKS
+
+#To get master node service details
+kubectl get svc
+
+#To check workernode details status
+kubectl get nodes --watch
